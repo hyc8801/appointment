@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta content=yes name=apple-mobile-web-app-capable>
+    <meta name=viewport content="width=device-width,height=device-height,inital-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name=format-detection content="telephone=no">
+    <meta http-equiv=pragma content=no-cache>
+    <title>正在载入..</title>
+    <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
+    <script>
+        //eruda.init();
+
+        window.openBwt = true;
+        window.openSelect = true;
+        window.mobileTypeBwt = getMobileTypeHkx();
+
+        function jugUrl() {
+            var localUrl = window.location.href;
+            if (localUrl.indexOf("appointment2/#") > -1) {
+                return "appointment";
+            } else {
+                return "appointment2"
+            }
+        }
+
+        function getMobileTypeHkx() {
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if (isAndroid) return "101";
+            if (isiOS) return "102";
+        }
+    </script>
+    <script>
+        function BWTLoginCallBack() {
+
+            console.log("callBack")
+            window.history.go(0);
+            window.location.reload();
+        }
+    </script>
+    <link href=./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css rel=stylesheet>
+</head>
+
+<body>
+    <div id=app-box></div>
+    <script type=text/javascript src=./static/js/manifest.06a1ffbb70a28d4ba8ef.js></script>
+    <script type=text/javascript src=./static/js/vendor.4a1f448b533bb11cede5.js></script>
+    <script type=text/javascript src=./static/js/app.ed57ec4f925421679b80.js></script>
+</body>
+
+</html>
