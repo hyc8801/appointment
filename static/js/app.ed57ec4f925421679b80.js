@@ -1019,7 +1019,7 @@ webpackJsonp([8], {
                 D = new R.a("sessionStorage"),
                 A = function () {
                     function e() {
-                        _()(this, e), this.appInfo = {}, this.baseUrl = w.dev.baseUrl || "", this.signatureInfo = {}
+                        _()(this, e), this.appInfo = {}, console.log(this, 222), this.baseUrl = w.dev.baseUrl || "https://ycx.cqmetro.cn", this.signatureInfo = {}
                     }
                     return m()(e, [{
                         key: "getNonce",
@@ -1149,6 +1149,8 @@ webpackJsonp([8], {
                                 return l.a.wrap(function (t) {
                                     for (; ;) switch (t.prev = t.next) {
                                         case 0:
+                                            // TODO
+                                            console.log(this.baseUrl = 'https://ycx.cqmetro.cn');
                                             return n = this.baseUrl ? this.baseUrl : this.getApiUrl(), t.next = 3, this.getHeaders(r);
                                         case 3:
                                             return a = t.sent, i = {
@@ -1196,7 +1198,7 @@ webpackJsonp([8], {
                                                 "X-Ca-Version": "v1.0",
                                                 random: "",
                                                 sequence: this.getSequence(),
-                                                app_version: this.appInfo.version || "",
+                                                app_version: this.appInfo?.version || "",
                                                 signature: i,
                                                 "X-Ca-Signature-Version": "1",
                                                 nonce: n,
@@ -1538,9 +1540,88 @@ webpackJsonp([8], {
                             return i.a.wrap(function (t) {
                                 for (; ;) switch (t.prev = t.next) {
                                     case 0:
-                                        return t.next = 2, Q.post("/bas/ncp/v1/console/appoint/supportStationList", e, I()({}, z, n));
+                                        return t.next = 2, delayTime(200, e, I()({}, z, n));
                                     case 2:
-                                        return t.abrupt("return", t.sent);
+                                        const res = formatRes({
+                                            "success": true,
+                                            "errcode": "0000",
+                                            "errmsg": "成功",
+                                            "result": [
+                                                {
+                                                    "line_id": "500000000594",
+                                                    "line_name": "1号线",
+                                                    "station_id": "108",
+                                                    "station_name": "石桥铺",
+                                                    "color": "#BA0000",
+                                                    "sort": 1
+                                                },
+                                                {
+                                                    "line_id": "500000000601",
+                                                    "line_name": "2号线",
+                                                    "station_id": "132",
+                                                    "station_name": "杨家坪",
+                                                    "color": "#00A32A",
+                                                    "sort": 2
+                                                },
+                                                {
+                                                    "line_id": "500000000601",
+                                                    "line_name": "2号线",
+                                                    "station_id": "123",
+                                                    "station_name": "临江门",
+                                                    "color": "#00A32A",
+                                                    "sort": 3
+                                                },
+                                                {
+                                                    "line_id": "500000000603",
+                                                    "line_name": "3号线",
+                                                    "station_id": "173",
+                                                    "station_name": "金童路",
+                                                    "color": "#012280",
+                                                    "sort": 4
+                                                },
+                                                {
+                                                    "line_id": "500000000603",
+                                                    "line_name": "3号线",
+                                                    "station_id": "172",
+                                                    "station_name": "金渝",
+                                                    "color": "#012280",
+                                                    "sort": 5
+                                                },
+                                                {
+                                                    "line_id": "500000000613",
+                                                    "line_name": "5号线北段",
+                                                    "station_id": "197",
+                                                    "station_name": "幸福广场",
+                                                    "color": "#0098DB",
+                                                    "sort": 6
+                                                },
+                                                {
+                                                    "line_id": "500000000617",
+                                                    "line_name": "6号线",
+                                                    "station_id": "205",
+                                                    "station_name": "江北城",
+                                                    "color": "#EB6183",
+                                                    "sort": 7
+                                                },
+                                                {
+                                                    "line_id": "500000000617",
+                                                    "line_name": "6号线",
+                                                    "station_id": "210",
+                                                    "station_name": "光电园",
+                                                    "color": "#EB6183",
+                                                    "sort": 8
+                                                },
+                                                {
+                                                    "line_id": "500000000623",
+                                                    "line_name": "环线",
+                                                    "station_id": "112",
+                                                    "station_name": "沙坪坝",
+                                                    "color": "#DAC27C",
+                                                    "sort": 9
+                                                }
+                                            ]
+                                        })
+                                        return t.abrupt("return", res);
                                     case 3:
                                     case "end":
                                         return t.stop()
@@ -1574,9 +1655,67 @@ webpackJsonp([8], {
                             return i.a.wrap(function (t) {
                                 for (; ;) switch (t.prev = t.next) {
                                     case 0:
-                                        return t.next = 2, Q.post("/bas/ncp/v1/appiont/list", e, I()({}, z, n));
+                                        return t.next = 2, delayTime(200, e, I()({}, z, n));
                                     case 2:
-                                        return t.abrupt("return", t.sent);
+                                        const res = formatRes({
+                                            "success": true,
+                                            "errcode": "0000",
+                                            "errmsg": "成功",
+                                            "result": {
+                                                "cityId": 5000,
+                                                "times": [
+                                                    {
+                                                        "timeZone": "17:30-17:40",
+                                                        "status": 1,
+                                                        "instationRuleId": 129334,
+                                                        "appointDate": "2023/03/06 17:00:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    },
+                                                    {
+                                                        "timeZone": "17:40-17:50",
+                                                        "status": 1,
+                                                        "instationRuleId": 129335,
+                                                        "appointDate": "2023/03/06 17:10:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    },
+                                                    {
+                                                        "timeZone": "17:50-17:60",
+                                                        "status": 1,
+                                                        "instationRuleId": 129336,
+                                                        "appointDate": "2023/03/06 18:20:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    },
+                                                    {
+                                                        "timeZone": "18:00-18:10",
+                                                        "status": 1,
+                                                        "instationRuleId": 129334,
+                                                        "appointDate": "2023/03/06 18:00:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    },
+                                                    {
+                                                        "timeZone": "18:10-18:20",
+                                                        "status": 1,
+                                                        "instationRuleId": 129335,
+                                                        "appointDate": "2023/03/06 18:10:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    },
+                                                    {
+                                                        "timeZone": "18:20-18:30",
+                                                        "status": 1,
+                                                        "instationRuleId": 129336,
+                                                        "appointDate": "2023/03/06 18:20:00",
+                                                        "num": 10,
+                                                        "week": null
+                                                    }
+                                                ]
+                                            }
+                                        })
+                                        return t.abrupt("return", res);
                                     case 3:
                                     case "end":
                                         return t.stop()
@@ -1592,9 +1731,179 @@ webpackJsonp([8], {
                             return i.a.wrap(function (t) {
                                 for (; ;) switch (t.prev = t.next) {
                                     case 0:
-                                        return t.next = 2, Q.post("/bas/ncp/v1/in-station/queryOrderList", e, I()({}, z, n));
+                                        return t.next = 2, delayTime(200, e, I()({}, z, n));
                                     case 2:
-                                        return t.abrupt("return", t.sent);
+                                        const query = parseUrlParams(location.toString())
+                                        console.log((query));
+                                        const nowDate = formatDate(new Date())
+                                        const res = formatRes({
+                                            "success": true,
+                                            "errcode": "0000",
+                                            "errmsg": "成功",
+                                            "result": {
+                                                "total_count": 195,
+                                                "page_no": 1,
+                                                "page_size": 10,
+                                                "total_page": 20,
+                                                "rows": [
+                                                    {
+                                                        instation_rule_id: 100,
+                                                        "order_no": "673528050159300614",
+                                                        "station_id": null,
+                                                        "station_name": query.station_name,
+                                                        "line_id": null,
+                                                        "line_name": query.line_name,
+                                                        "start_time": query.start_time,
+                                                        "end_time": query.end_time,
+                                                        "appiont_date": nowDate,
+                                                        "status": 0,
+                                                        "create_time": "Mon Mar 06 14:00:00 CST 2023",
+                                                        "local_time": new Date()
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 129335,
+                                                        "order_no": "673528050159300614",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:10",
+                                                        "end_time": "18:20",
+                                                        "appiont_date": "2023-03-06",
+                                                        "status": 1,
+                                                        "create_time": "Mon Mar 06 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 129173,
+                                                        "order_no": "672440886377951237",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:10",
+                                                        "end_time": "18:20",
+                                                        "appiont_date": "2023-03-03",
+                                                        "status": 1,
+                                                        "create_time": "Fri Mar 03 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 129119,
+                                                        "order_no": "672078499774836740",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:10",
+                                                        "end_time": "18:20",
+                                                        "appiont_date": "2023-03-02",
+                                                        "status": 1,
+                                                        "create_time": "Thu Mar 02 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 129065,
+                                                        "order_no": "671716109963079682",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:10",
+                                                        "end_time": "18:20",
+                                                        "appiont_date": "2023-03-01",
+                                                        "status": 1,
+                                                        "create_time": "Wed Mar 01 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 129012,
+                                                        "order_no": "671353722516910085",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-28",
+                                                        "status": 1,
+                                                        "create_time": "Tue Feb 28 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 128958,
+                                                        "order_no": "670991334940717065",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-27",
+                                                        "status": 1,
+                                                        "create_time": "Mon Feb 27 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 128796,
+                                                        "order_no": "669904171473940482",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-24",
+                                                        "status": 1,
+                                                        "create_time": "Fri Feb 24 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 128742,
+                                                        "order_no": "669541783037915144",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-23",
+                                                        "status": 1,
+                                                        "create_time": "Thu Feb 23 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 128688,
+                                                        "order_no": "669179395390418954",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-22",
+                                                        "status": 1,
+                                                        "create_time": "Wed Feb 22 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    },
+                                                    {
+                                                        "instation_rule_id": 128634,
+                                                        "order_no": "668817007814225921",
+                                                        "station_id": null,
+                                                        "station_name": "光电园",
+                                                        "line_id": null,
+                                                        "line_name": "6号线",
+                                                        "start_time": "18:20",
+                                                        "end_time": "18:30",
+                                                        "appiont_date": "2023-02-21",
+                                                        "status": 1,
+                                                        "create_time": "Tue Feb 21 14:00:00 CST 2023",
+                                                        "local_time": "2023/03/07 09:41:12"
+                                                    }
+                                                ]
+                                            }
+                                        })
+                                        return t.abrupt("return", res);
                                     case 3:
                                     case "end":
                                         return t.stop()
@@ -1610,51 +1919,9 @@ webpackJsonp([8], {
                             return i.a.wrap(function (t) {
                                 for (; ;) switch (t.prev = t.next) {
                                     case 0:
-                                        const p = new Promise((resolve) => {
-                                            setTimeout(() => {
-                                                resolve()
-                                            }, 600);
-                                        })
-                                        return t.next = 2, p;
+                                        return t.next = 2, delayTime(300, e, I()({}, z, n));
                                     case 2:
-                                        function parseUrlParams(url) {
-                                            let params = url.split('?')[1];
-                                            if (!params) {
-                                                return {};
-                                            }
-
-                                            params = params.split('&');
-
-                                            let result = {};
-
-                                            for (let i = 0; i < params.length; i++) {
-                                                let param = params[i].split('=');
-                                                let key = decodeURIComponent(param[0]);
-                                                let value = decodeURIComponent(param[1] || '');
-
-                                                if (result[key]) {
-                                                    if (Array.isArray(result[key])) {
-                                                        result[key].push(value);
-                                                    } else {
-                                                        result[key] = [result[key], value];
-                                                    }
-                                                } else {
-                                                    result[key] = value;
-                                                }
-                                            }
-
-                                            return result;
-                                        }
                                         const query = parseUrlParams(location.toString())
-                                        console.log(`😋🙃 ~ file: app.ed57ec4f925421679b80.js:1649 ~ query:`, query);
-                                        function formatDate(date) {
-                                            let year = date.getFullYear();
-                                            let month = date.getMonth() + 1;
-                                            let day = date.getDate();
-                                            if (month < 10) month = '0' + month;
-                                            if (day < 10) day = '0' + day;
-                                            return `${year}-${month}-${day}`;
-                                        }
                                         const local_time = new Date()
                                         const info = {
                                             station_name: "光电园",
@@ -1704,53 +1971,9 @@ webpackJsonp([8], {
                             return i.a.wrap(function (t) {
                                 for (; ;) switch (t.prev = t.next) {
                                     case 0:
-                                        const p = new Promise((resolve) => {
-                                            setTimeout(() => {
-                                                resolve()
-                                            }, 600);
-                                        })
-                                        return t.next = 2, p;
+                                        return t.next = 2, Q.post("/bas/ncp/v1/card/query", e, I()({}, z, n));
                                     case 2:
-                                        function formatDate(date) {
-                                            let year = date.getFullYear();
-                                            let month = date.getMonth() + 1;
-                                            let day = date.getDate();
-
-                                            if (month < 10) {
-                                                month = '0' + month;
-                                            }
-
-                                            if (day < 10) {
-                                                day = '0' + day;
-                                            }
-                                            return `${year}-${month}-${day}`;
-                                        }
-                                        const local_time = new Date()
-                                        const res = {
-                                            "success": true,
-                                            "errcode": "0000",
-                                            "errmsg": "成功",
-                                            "msg": "成功",
-                                            "isSuc": true,
-                                            "info": {
-                                                "instation_rule_id":
-                                                    128418,
-                                                "order_no":
-                                                    "667367472088854528",
-                                                "station_id": null,
-                                                "station_name": "光电园",
-                                                "line_id": null,
-                                                "line_name": "6号线",
-                                                "start_time": "09:20",
-                                                "end_time": "10:30",
-                                                "appiont_date": formatDate(new Date()),
-                                                "status": 0,
-                                                "create_time": "Fri Feb 17 14:00:04 CST 2023",
-                                                "local_time": local_time
-                                            },
-                                            "errCode": "0000"
-                                        }
-                                        return t.abrupt("return", res);
+                                        return t.abrupt("return", t.sent);
                                     case 3:
                                     case "end":
                                         return t.stop()

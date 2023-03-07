@@ -4,7 +4,8 @@
 <head>
     <meta charset=utf-8>
     <meta content=yes name=apple-mobile-web-app-capable>
-    <meta name=viewport content="width=device-width,height=device-height,inital-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name=viewport
+        content="width=device-width,height=device-height,inital-scale=1,maximum-scale=1,user-scalable=no">
     <meta name=format-detection content="telephone=no">
     <meta http-equiv=pragma content=no-cache>
     <title>正在载入..</title>
@@ -31,6 +32,61 @@
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
             if (isAndroid) return "101";
             if (isiOS) return "102";
+        }
+
+        const delayTime = (time) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve()
+                }, time);
+            })
+        }
+
+        const formatRes = (res) => {
+            return {
+                ...res,
+                "msg": "成功",
+                "isSuc": true,
+                "errCode": "0000",
+                info: res.result
+            }
+        }
+
+        function parseUrlParams(url) {
+            let params = url.split('?')[1];
+            if (!params) {
+                return {};
+            }
+
+            params = params.split('&');
+
+            let result = {};
+
+            for (let i = 0; i < params.length; i++) {
+                let param = params[i].split('=');
+                let key = decodeURIComponent(param[0]);
+                let value = decodeURIComponent(param[1] || '');
+
+                if (result[key]) {
+                    if (Array.isArray(result[key])) {
+                        result[key].push(value);
+                    } else {
+                        result[key] = [result[key], value];
+                    }
+                } else {
+                    result[key] = value;
+                }
+            }
+
+            return result;
+        }
+        function formatDate(date) {
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+            if (month < 10) month = '0' + month;
+            if (day < 10) day = '0' + day;
+            return `${year}-${month}-${day}`;
         }
     </script>
     <script>
