@@ -147,13 +147,15 @@ webpackJsonp([2], {
               });
             },
             handleToDetail: function (t) {
-              if ('101' == window.mobileTypeBwt) {
-                var e = jugUrl();
-                window.location.href = '../' + e + '/#/appointmentRecordDetail?order_no=' + t.order_no;
-              } else {
-                const query = parseUrlParams(location.hash)
-                this.$router.push({ path: '/appointmentRecordDetail', query: { order_no: t.order_no, ...query } })
-              };
+              // if ('101' == window.mobileTypeBwt) {
+              //   var e = jugUrl();
+              //   window.location.href = '../' + e + '/#/appointmentRecordDetail?order_no=' + t.order_no;
+              // } else {
+              //   const query = parseUrlParams(location.hash)
+              //   this.$router.push({ path: '/appointmentRecordDetail', query: { order_no: t.order_no, ...query } })
+              // };
+              const query = parseUrlParams(location.hash)
+              this.$router.push({ path: '/appointmentRecordDetail', query: { order_no: t.order_no, ...query } })
             },
           },
         }),
