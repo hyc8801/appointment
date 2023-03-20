@@ -12,16 +12,13 @@
     <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
     <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/3.0.12/dingtalk.open.js"></script>
     <script>
-        //eruda.init();
-        dd?.biz.navigation.setRight({
-            show: false, // 控制按钮显示， true 显示， false 隐藏， 默认true
-            control: false, // 是否控制点击事件，true 控制，false 不控制， 默认false
-            text: '', // 控制显示文本，空字符串表示显示默认文本
-        })
-        window.openBwt = true;
-        window.openSelect = true;
-        window.mobileTypeBwt = getMobileTypeHkx();
-
+        ;(function () {
+            var src = '//cdn.jsdelivr.net/npm/eruda';
+            if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+            document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+        })();
+        
         function jugUrl() {
             var localUrl = window.location.href;
             if (localUrl.indexOf("appointment/#") > -1) {
@@ -39,6 +36,16 @@
             if (isiOS) return "102";
         }
 
+        if (dd) {
+            dd.biz.navigation.setRight({
+                show: false, // 控制按钮显示， true 显示， false 隐藏， 默认true
+                control: false, // 是否控制点击事件，true 控制，false 不控制， 默认false
+                text: '', // 控制显示文本，空字符串表示显示默认文本
+            })
+            window.openBwt = true;
+            window.openSelect = true;
+            window.mobileTypeBwt = getMobileTypeHkx();
+        }
         const delayTime = (time) => {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -48,29 +55,25 @@
         }
 
         const formatRes = (res) => {
-            return {
-                ...res,
+            return Object.assign({}, res, {
                 "msg": "成功",
                 "isSuc": true,
                 "errCode": "0000",
                 info: res.result
-            }
+            })
         }
 
         function parseUrlParams(url) {
-            let params = url.split('?')[1];
+            var params = url ? url.split('?')[1] : '';
             if (!params) {
                 return {};
             }
-
             params = params.split('&');
-
-            let result = {};
-
-            for (let i = 0; i < params.length; i++) {
-                let param = params[i].split('=');
-                let key = decodeURIComponent(param[0]);
-                let value = decodeURIComponent(param[1] || '');
+            var result = {};
+            for (var i = 0; i < params.length; i++) {
+                var param = params[i].split('=');
+                var key = decodeURIComponent(param[0]);
+                var value = decodeURIComponent(param[1] || '');
 
                 if (result[key]) {
                     if (Array.isArray(result[key])) {
@@ -82,13 +85,12 @@
                     result[key] = value;
                 }
             }
-
             return result;
         }
         function formatDate(date) {
-            let year = date.getFullYear();
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
             if (month < 10) month = '0' + month;
             if (day < 10) day = '0' + day;
             return `${year}-${month}-${day}`;
@@ -96,7 +98,6 @@
     </script>
     <script>
         function BWTLoginCallBack() {
-
             console.log("callBack")
             window.history.go(0);
             window.location.reload();

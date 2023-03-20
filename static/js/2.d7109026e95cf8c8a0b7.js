@@ -151,7 +151,7 @@ webpackJsonp([2], {
                 var e = jugUrl();
                 window.location.href = '../' + e + '/#/appointmentRecordDetail?order_no=' + t.order_no;
               } else {
-                const query = parseUrlParams(location.toString())
+                const query = parseUrlParams(location.hash)
                 this.$router.push({ path: '/appointmentRecordDetail', query: { order_no: t.order_no, ...query } })
               };
             },

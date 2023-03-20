@@ -1733,7 +1733,8 @@ webpackJsonp([8], {
                                     case 0:
                                         return t.next = 2, delayTime(200, e, I()({}, z, n));
                                     case 2:
-                                        const query = parseUrlParams(location.toString())
+                                        const query = parseUrlParams(location.hash)
+                                        console.log(`😋🙃 ~ file: app.ed57ec4f925421679b80.js:1737 ~ query:`, query);
                                         console.log((query));
                                         const nowDate = formatDate(new Date())
                                         const res = formatRes({
@@ -1921,7 +1922,8 @@ webpackJsonp([8], {
                                     case 0:
                                         return t.next = 2, delayTime(300, e, I()({}, z, n));
                                     case 2:
-                                        const query = parseUrlParams(location.toString())
+                                        const query = parseUrlParams(location.hash)
+                                        console.log(`😋🙃 ~ file: app.ed57ec4f925421679b80.js:1926 ~ query:`, query);
                                         const local_time = new Date()
                                         const info = {
                                             station_name: "光电园",
