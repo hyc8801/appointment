@@ -10,16 +10,7 @@
     <meta http-equiv=pragma content=no-cache>
     <title>预约结果</title>
     <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
-    <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/3.0.12/dingtalk.open.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2FKWBVJLD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-F2FKWBVJLD');
-    </script>
+    
     <script>
         ;(function () {
             var src = '//cdn.jsdelivr.net/npm/eruda';
@@ -45,16 +36,16 @@
             if (isiOS) return "102";
         }
 
-        if (dd) {
-            dd.biz.navigation.setRight({
-                show: false, // 控制按钮显示， true 显示， false 隐藏， 默认true
-                control: false, // 是否控制点击事件，true 控制，false 不控制， 默认false
-                text: '', // 控制显示文本，空字符串表示显示默认文本
-            })
-            window.openBwt = true;
-            window.openSelect = true;
-            window.mobileTypeBwt = getMobileTypeHkx();
-        }
+//         if (dd) {
+//             dd.biz.navigation.setRight({
+//                 show: false, // 控制按钮显示， true 显示， false 隐藏， 默认true
+//                 control: false, // 是否控制点击事件，true 控制，false 不控制， 默认false
+//                 text: '', // 控制显示文本，空字符串表示显示默认文本
+//             })
+//             window.openBwt = true;
+//             window.openSelect = true;
+//             window.mobileTypeBwt = getMobileTypeHkx();
+//         }
         const delayTime = (time) => {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -114,6 +105,15 @@
     </script>
     <link href=./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css rel=stylesheet>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F2FKWBVJLD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F2FKWBVJLD');
+</script>
 
 <body>
     <div id=app-box></div>
