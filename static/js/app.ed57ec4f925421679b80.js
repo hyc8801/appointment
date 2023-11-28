@@ -1681,7 +1681,7 @@ webpackJsonp([8], {
                                                         "week": null
                                                     },
                                                     {
-                                                        "timeZone": "17:50-17:60",
+                                                        "timeZone": "17:50-18:00",
                                                         "status": 1,
                                                         "instationRuleId": 129336,
                                                         "appointDate": "2023/03/06 18:20:00",
