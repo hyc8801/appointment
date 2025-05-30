@@ -1,5 +1,6 @@
 const CACHE_NAME = 'yuchangxing-cache-v1.3';
 const urlsToCache = [
+  "./",
   "./index.html",
   "./extend.js",
   "./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css",

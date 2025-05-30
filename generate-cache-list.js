@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const rootFiles = ['index.html', 'extend.js']; // 需要缓存的根目录文件
+const rootFiles = ['','index.html', 'extend.js']; // 需要缓存的根目录文件
 const staticDir = path.join(__dirname, 'static');
 const swPath = path.join(__dirname, 'service-worker.js');
 

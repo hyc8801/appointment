@@ -1,3 +1,7 @@
+const mylog = (...args) => {
+  mylog('🚀🚀🚀', ...args);
+};
+
 (function () {
   var src = '//cdn.jsdelivr.net/npm/eruda';
   if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
@@ -94,7 +98,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('./service-worker.js').then(
       function (reg) {
-        console.log('ServiceWorker 注册成功: ', reg.scope);
+        mylog('🚀🚀🚀ServiceWorker 注册成功: ', reg.scope);
 
         reg.onupdatefound = function () {
           var installingWorker = reg.installing;
@@ -111,7 +115,7 @@ if ('serviceWorker' in navigator) {
         };
       },
       function (err) {
-        console.log('ServiceWorker 注册失败: ', err);
+        mylog('🚀🚀🚀ServiceWorker 注册失败: ', err);
       }
     );
   });
