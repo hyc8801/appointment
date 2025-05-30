@@ -84,7 +84,7 @@ const formatRes = (res) => {
 
 function isInStandaloneMode() {
   console.log(`😋🙃 ~ isInStandaloneMode ~ window.navigator.standalone:`, window.navigator);
-  console.log(`😋🙃 ~ isInStandaloneMode ~ window.matchMedia:`, window.matchMedia);
+  console.log(`😋🙃 ~ isInStandaloneMode ~ window.matchMedia:`, window?.matchMedia('(display-mode: standalone)'));
   return (
     window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
