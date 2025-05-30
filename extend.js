@@ -9,7 +9,7 @@ if (window.location.hash === '#/' || window.location.hash === '') {
 
 (function () {
   var src = '//cdn.jsdelivr.net/npm/eruda';
-  // if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+  if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
   document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
   document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
 })();
@@ -83,8 +83,6 @@ const formatRes = (res) => {
 };
 
 function isInStandaloneMode() {
-  console.log(`😋🙃 ~ isInStandaloneMode ~ window.navigator.standalone:`, window.navigator);
-  console.log(`😋🙃 ~ isInStandaloneMode ~ window.matchMedia:`, window?.matchMedia('(display-mode: standalone)'));
   return (
     window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
