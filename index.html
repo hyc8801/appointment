@@ -14,122 +14,9 @@
     <link rel="apple-touch-icon" href="./static/img/logo.png">
     <title>预约结果</title>
     <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
-    <style>
-        body {
-            background: #fff;
-        }
-    </style>
-    <script>
-        ;(function () {
-            var src = '//cdn.jsdelivr.net/npm/eruda';
-            if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
-            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-            document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
-        })();
-        
-        function jugUrl() {
-            var localUrl = window.location.href;
-            if (localUrl.indexOf("appointment/#") > -1) {
-                return "appointment";
-            } else {
-                return "appointment"
-            }
-        }
-
-        function getMobileTypeHkx() {
-            var u = navigator.userAgent;
-            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-            if (isAndroid) return "101";
-            if (isiOS) return "102";
-        }
-
-//         if (dd) {
-//             dd.biz.navigation.setRight({
-//                 show: false, // 控制按钮显示， true 显示， false 隐藏， 默认true
-//                 control: false, // 是否控制点击事件，true 控制，false 不控制， 默认false
-//                 text: '', // 控制显示文本，空字符串表示显示默认文本
-//             })
-//             window.openBwt = true;
-//             window.openSelect = true;
-//             window.mobileTypeBwt = getMobileTypeHkx();
-//         }
-        const delayTime = (time) => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve()
-                }, time);
-            })
-        }
-
-        const formatRes = (res) => {
-            return Object.assign({}, res, {
-                "msg": "成功",
-                "isSuc": true,
-                "errCode": "0000",
-                info: res.result
-            })
-        }
-
-        function parseUrlParams(url) {
-            var params = url ? url.split('?')[1] : '';
-            if (!params) {
-                return {};
-            }
-            params = params.split('&');
-            var result = {};
-            for (var i = 0; i < params.length; i++) {
-                var param = params[i].split('=');
-                var key = decodeURIComponent(param[0]);
-                var value = decodeURIComponent(param[1] || '');
-
-                if (result[key]) {
-                    if (Array.isArray(result[key])) {
-                        result[key].push(value);
-                    } else {
-                        result[key] = [result[key], value];
-                    }
-                } else {
-                    result[key] = value;
-                }
-            }
-            return result;
-        }
-        function formatDate(date) {
-            var year = date.getFullYear();
-            var month = date.getMonth() + 1;
-            var day = date.getDate();
-            if (month < 10) month = '0' + month;
-            if (day < 10) day = '0' + day;
-            return `${year}-${month}-${day}`;
-        }
-    </script>
-    <script>
-        function BWTLoginCallBack() {
-            console.log("callBack")
-            window.history.go(0);
-            window.location.reload();
-        }
-    </script>
+    <script src="./extend.js"></script>
     <link href=./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css rel=stylesheet>
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?9c12815d2407f001cbed45447a638014";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2FKWBVJLD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-F2FKWBVJLD');
-    </script>
+    <link rel="manifest" href="./manifest.json">
 </head>
 <body>
     <div id="standalone-navbar" style="display:none;position:relative;z-index:1000;background:#fff;border-bottom:1px solid #eee;height:44px;align-items:center;">
@@ -145,21 +32,6 @@
     <script type=text/javascript src=./static/js/manifest.06a1ffbb70a28d4ba8ef.js></script>
     <script type=text/javascript src=./static/js/vendor.4a1f448b533bb11cede5.js></script>
     <script type=text/javascript src=./static/js/app.ed57ec4f925421679b80.js></script>
-    <script>
-    function isInStandaloneMode() {
-        return (window.navigator.standalone === true) ||
-               (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
-    }
-    // 如果是 桌面应用 则显示导航栏
-    if (isInStandaloneMode()) {
-        
-        document.getElementById('standalone-navbar').style.display = 'flex';
-        var style = document.createElement('style');
-        style.innerHTML = '._v-container[data-v-ecaca2b0] { padding-top: 20px; }';
-        document.head.appendChild(style);
-
-    }
-    </script>
 </body>
 
 </html>
