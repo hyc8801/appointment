@@ -4,6 +4,7 @@
 <head>
     <meta charset=utf-8>
     <meta content=yes name=apple-mobile-web-app-capable>
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name=viewport
@@ -17,6 +18,13 @@
     <script src="./extend.js"></script>
     <link href=./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css rel=stylesheet>
     <link rel="manifest" href="./manifest.json">
+    <style>
+        @media all and (display-mode: standalone) {
+            #standalone-navbar {
+                display: flex!important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="standalone-navbar" style="display:none;position:relative;z-index:1000;background:#fff;border-bottom:1px solid #eee;height:44px;align-items:center;">

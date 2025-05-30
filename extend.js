@@ -83,6 +83,8 @@ const formatRes = (res) => {
 };
 
 function isInStandaloneMode() {
+  console.log(`😋🙃 ~ isInStandaloneMode ~ window.navigator.standalone:`, window.navigator);
+  console.log(`😋🙃 ~ isInStandaloneMode ~ window.matchMedia:`, window.matchMedia);
   return (
     window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
@@ -103,7 +105,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('./service-worker.js').then(
       function (reg) {
-        mylog('🚀🚀🚀ServiceWorker 注册成功: ', reg.scope);
+        mylog('ServiceWorker 注册成功: ', reg);
 
         reg.onupdatefound = function () {
           var installingWorker = reg.installing;
@@ -120,7 +122,7 @@ if ('serviceWorker' in navigator) {
         };
       },
       function (err) {
-        mylog('🚀🚀🚀ServiceWorker 注册失败: ', err);
+        mylog('ServiceWorker 注册失败: ', err);
       }
     );
   });
