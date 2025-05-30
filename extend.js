@@ -1,5 +1,5 @@
 const mylog = (...args) => {
-  mylog('🚀🚀🚀', ...args);
+  console.log('🚀🚀🚀', ...args);
 };
 
 (function () {
