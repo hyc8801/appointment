@@ -2,6 +2,11 @@ const mylog = (...args) => {
   console.log('🚀🚀🚀', ...args);
 };
 
+if (window.location.hash === '#/' || window.location.hash === '') {
+  // h5跳转到 /#/appointmentMain
+  window.location.replace(`/appointment/#/appointmentMain`)
+}
+
 (function () {
   var src = '//cdn.jsdelivr.net/npm/eruda';
   if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
