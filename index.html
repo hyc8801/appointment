@@ -14,8 +14,8 @@
     <meta name="apple-mobile-web-app-title" content="渝畅行进站">
     <link rel="apple-touch-icon" href="./static/img/logo.png">
     <title>预约结果</title>
-    <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
     <script src="./extend.js"></script>
+    <script src=https://bwton-cdn.oss-cn-shanghai.aliyuncs.com/act-img/3601ncp/rem.js></script>
     <link href=./static/css/app.2e6bfe34408fba4194ca550c2bd769dd.css rel=stylesheet>
     <link rel="manifest" href="./manifest.json">
     <style>
@@ -26,16 +26,34 @@
             body { background: #fff; }
             ._v-container[data-v-ecaca2b0] { padding-top: 20px; }
         }
+        #standalone-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            height: 44px;
+            align-items: center;
+            display: none; /* 默认隐藏，js控制显示 */
+        }
+        .standalone-navbar-back {
+            width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+        }
+        .standalone-navbar-title {
+            flex:1;text-align:center;font-size:18px;font-weight:bold;color:#222;
+        }
     </style>
 </head>
 <body>
-    <div id="standalone-navbar" style="display:none;position:relative;z-index:1000;background:#fff;border-bottom:1px solid #eee;height:44px;align-items:center;">
-        <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;" onclick="window.history.back()">
+    <div id="standalone-navbar">
+        <div class="standalone-navbar-back" onclick="window.history.back()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 18L9 12L15 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-        <div style="flex:1;text-align:center;font-size:18px;font-weight:bold;color:#222;">渝畅行</div>
+        <div class="standalone-navbar-title">渝畅行</div>
         <div style="width:44px;"></div>
     </div>
     <div id=app-box></div>

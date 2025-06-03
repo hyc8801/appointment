@@ -1,6 +1,57 @@
+// window._consolelog = console.log
+// console.log = () => {};
+
 const mylog = (...args) => {
   console.log('🚀🚀🚀', ...args);
 };
+
+
+const delayTime = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+
+const startDebug = () => {
+  localStorage.setItem('active-eruda', 'true')
+  window.location.reload();
+}
+
+window.onload = async () => {
+  let clickCount = 0;
+  let clickTimer = null;
+
+  await delayTime(600)
+
+  const banner = document.querySelector('.appointment-main-banner');
+  if (banner) {
+    banner.addEventListener('click', function() {
+      clickCount++;
+      if (clickCount === 5) {
+        alert(`出发debug模式，即将刷新`)
+        startDebug();
+        clickCount = 0; // 重置计数
+        clearTimeout(clickTimer);
+        clickTimer = null;
+        return;
+      }
+      // 2秒内未连续点击则重置
+      if (clickTimer) clearTimeout(clickTimer);
+      clickTimer = setTimeout(() => {
+        clickCount = 0;
+      }, 2000);
+    });
+  }
+}
+
+
+['fullscreen', 'standalone', 'minimal-ui', 'browser', 'window-controls-overlay'].forEach(mode => {
+  if (window.matchMedia?.('(display-mode: ' + mode + ')').matches) {
+    mylog('当前 display-mode: ' + mode);
+  }
+});
 
 if (window.location.hash === '#/' || window.location.hash === '') {
   // h5跳转到 /#/appointmentMain
@@ -31,13 +82,6 @@ function jugUrl() {
   }
 }
 
-const delayTime = (time) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, time);
-  });
-};
 
 function parseUrlParams(url) {
   var params = url ? url.split('?')[1] : '';
@@ -125,3 +169,4 @@ if ('serviceWorker' in navigator) {
     );
   });
 }
+
