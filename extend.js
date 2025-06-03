@@ -1,5 +1,11 @@
 // window._consolelog = console.log
 // console.log = () => {};
+if (window.location.hash === '#/' || window.location.hash === '') {
+  // h5跳转到 /#/appointmentMain
+  window.location.replace(window.location.pathname + `#/appointmentMain`)
+}
+
+
 (function () {
   var src = '//cdn.jsdelivr.net/npm/eruda';
   if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
@@ -50,21 +56,13 @@ window.onload = async () => {
       }, 2000);
     });
   }
+
+  ['fullscreen', 'standalone', 'minimal-ui', 'browser', 'window-controls-overlay'].forEach(mode => {
+    if (window.matchMedia?.('(display-mode: ' + mode + ')').matches) {
+      mylog('当前 display-mode: ' + mode);
+    }
+  });
 }
-
-
-['fullscreen', 'standalone', 'minimal-ui', 'browser', 'window-controls-overlay'].forEach(mode => {
-  if (window.matchMedia?.('(display-mode: ' + mode + ')').matches) {
-    mylog('当前 display-mode: ' + mode);
-  }
-});
-
-if (window.location.hash === '#/' || window.location.hash === '') {
-  // h5跳转到 /#/appointmentMain
-  window.location.replace(window.location.pathname + `#/appointmentMain`)
-}
-
-
 
 var _hmt = _hmt || [];
 (function () {
