@@ -1,4 +1,4 @@
-const CACHE_NAME = 'yuchangxing-cache-v1.94';
+const CACHE_NAME = 'yuchangxing-cache-v1.95';
 console.log(`🚀🚀🚀CACHE_NAME:`, CACHE_NAME);
 const urlsToCache = [
   "./",
