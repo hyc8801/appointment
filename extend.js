@@ -4,7 +4,7 @@ const mylog = (...args) => {
 
 if (window.location.hash === '#/' || window.location.hash === '') {
   // h5跳转到 /#/appointmentMain
-  window.location.replace(`/appointment/#/appointmentMain`)
+  window.location.replace(window.location.pathname + `#/appointmentMain`)
 }
 
 (function () {
